@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>GREENSCAN</title>
+        <link rel="stylesheet" type="text/css" href="shopping.css" />
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            출처: https://unabated.tistory.com/entry/모바일-사이트-버튼눌림효과-주기 [랄라라:티스토리]
+
+                // 이 아래부턴 overscroll을 위해 일단 과제로 했던 걸 옮겨 놨는데, 데이터 처리를 어떻게 하실지 모르겠어서 미완으로 놔두었습니다.
+                // 필요하다면 쓰시고 아니면 편하신대로 하시면 될것같습니다.
+
+                let counter = 1;
+
+            async function itemLoad() {
+                let response = await fetch(`product.json`);
+                let product = await response.json()
+
+                for (let i = 0; i < product.length; i++) {
+                    if (product[i]["postId"] == conuter) {
+                        createItemBox(product[i])
+                    }
+                }
+                counter++
+            }
+
+            function createItemBox(oneProduct) {
+
+            };
+
+            window.addEventListener("load", () => {
+
+                    window.onscroll = () => {
+                        itemLoad()
+
+                        if ((window.innerHeight + window.scrollY) >=
+                            document.body.offsetHeight) {
+                            itemLoad()
+                        }
+                    };
+
+                }
+            )
+        </script>
+    </head>
+    <body>
+        <header>
+            <div class="site_title">
+                <a href="index.html">GREENSCAN</a>
+            </div>
+        </header>
+        <nav>
+            <!--  search부분은 구현 안 할 경우 빼겠습니다.  -->
+            <a class="nav_bar" href="barcode.html">BARCODE SCAN</a>
+            <a class="nav_search" href="shopping.html">SEARCH</a>
+            <a class="nav_map" href="map.html">MAP</a>
+        </nav>
+
+        <div class="main_content">
+            <h3 class="current_page">BARCODE SCAN RESULT</h3>
+
+            <!--  현재 바코드 검색한 제품의 녹색 제품여부   -->
+            <!--  result class 중에서, 결과에 따라 green과 non-green 하나만 띄우면 될 것같습니다   -->
+
+            <!--  img태그에 onclick을 넣어둔 것은, 이미지를 클릭하면 해당 물품을 판매하는 사이트로
+    (혹은 쇼핑몰에 해당 제품 검색한 창으로) 이동할 것을 예상하고 한것인데, 마찬가지로 원하시는대로 빼도 될 것같습니다. -->
+            <div class="item_box current_item">
+                <p class="line"></p>
+                <p class="sub_title">[(바코드 검색한 제품 이름 출력부분)]</p>
+                <img
+                    class="item_img"
+                    onclick=""
+                    src="https://contents.lotteon.com/itemimage/_v175700/LM/47/11/26/96/89/29/0_/00/1/LM4711269689290_001_1.jpg"
+                />
+                <p class="result green">녹색제품이 맞습니다.</p>
+                <!--  <p class="result non_green">녹색제품이 아닙니다.</p>  -->
+            </div>
+
+            <!--  같은 카테고리의 녹색제품 리스트  -->
+            <div class="recommand">
+                <p class="line"></p>
+                <p class="sub_title">[Recommand]</p>
+
+                <!--  데이터 받아와서 recommand_list class에 반복해 추가하면 될 것같습니다  -->
+                <!--  링크는 이미지가 아닌 item_box class에 달리도록 해놓았습니다.    -->
+                <!--  가격정보는 임의로 적어두었는데(class="item_info), 원하시는대로 빼거나 다른 정보로 대체해도 될것같습니다.  -->
+                <div class="recommand_list">
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+
+                    <div class="item_box">
+                        <img
+                            class="item_img"
+                            onclick=""
+                            src="https://contents.lotteon.com/itemimage/_v131647/LM/40/01/68/63/01/55/5_/00/1/LM4001686301555_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

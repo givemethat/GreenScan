@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>GREENSCAN</title>
+        <link rel="stylesheet" type="text/css" href="shopping.css" />
+
+        <!--  카카오맵 지도를 화면에 표시하기위한 script  -->
+        <!--  이를 위해서 개발자 등록을 하고 app키를 받아와야하는데, 일단은 제(최선하) 계정으로 해 두었습니다.  -->
+        <!--  관련 정보: https://apis.map.kakao.com/web/guide/  -->
+        <script
+            type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=aae2224251aed99c88d5291777d99e53"
+        ></script>
+    </head>
+    <body>
+        <header>
+            <div class="site_title">
+                <a href="index.html">GREENSCAN</a>
+            </div>
+        </header>
+        <nav>
+            <a class="nav_bar" href="barcode.html">BARCODE SCAN</a>
+            <a class="nav_search" href="shopping.html">SEARCH</a>
+            <a class="nav_map" href="map.html">MAP</a>
+        </nav>
+        <div class="main_content">
+            <h3 class="current_page">GREEN STORE MAP</h3>
+            <p></p>
+            <div id="map">
+                <!--  지도가 표시될 구간  -->
+            </div>
+        </div>
+        <!-- map.js 연결(body 마지막 부분에 입력해야지 작동) -->
+        <script type="text/javascript" src="map.js"></script>
+    </body>
+</html>
