@@ -28,7 +28,7 @@ app.get("/barcode", async function (req, res) {
 });
 
 app.get("/search", async function (req, res) {
-    res.render("search.ejs", { data: null });
+    res.render("search.ejs");
 });
 
 app.post("/barcodeShopping", async function (req, res) {
