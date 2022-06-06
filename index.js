@@ -50,9 +50,12 @@ app.post("/barcodeShopping", async function (req, res) {
             let query = `select * from greenProduct where 식별번호 == ${idNum}`;
             let rows = await db.all(query);
             let isGreen = rows.length > 0;
+            let queryForGreens = `select * from greenProduct where 분류번호 == ${classNum}`;
+            let greenItems = await db.all(queryForGreens);
             res.render("shopping.ejs", {
                 name: fullName,
                 isGreen: isGreen,
+                greenItems: greenItems
             });
         });
     });
@@ -64,6 +67,7 @@ app.post("/searchShopping", async function (req, res) {
     request(encodeURI(url), async function (err, res2, html) {
         if (err) console.error(err);
         let $ = cheerio.load(html);
+
         let arr = $(".labelNum").first().text().split("-");
         let classNum = arr[0];
         let idNum = arr[1];
@@ -71,9 +75,12 @@ app.post("/searchShopping", async function (req, res) {
         let query = `select * from greenProduct where 식별번호 == ${idNum}`;
         let rows = await db.all(query);
         let isGreen = rows.length > 0;
+        let queryForGreens = `select * from greenProduct where 분류번호 == ${classNum}`;
+        let greenItems = await db.all(queryForGreens);
         res.render("shopping.ejs", {
             name: name,
             isGreen: isGreen,
+            greenItems: greenItems
         });
     });
 });

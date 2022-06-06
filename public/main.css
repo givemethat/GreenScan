@@ -15,6 +15,7 @@
     src: url("https://fonts.googleapis.com/css2?Gothic+A1:wght@300");
     unicode-range: U+AC00-D7A3;
 }
+
 body {
     margin: 0px;
 }
@@ -177,7 +178,7 @@ nav a:after {
     padding-top: 1vh;
     vertical-align: bottom;
 }
-.item_title {
+.item_title, .item_title a {
     font-family: "Gothic A1";
     font-size: 3.5vw;
     margin: 0;
