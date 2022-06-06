@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>GREENSCAN</title>
+        <link rel="stylesheet" type="text/css" href="main.css" />
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <header>
+            <div>
+                <a href="/">GREENSCAN</a>
+            </div>
+        </header>
+        <nav>
+            <a class="nav_bar" href="/barcode">BARCODE SCAN</a>
+            <a class="nav_search" href="/search">SEARCH</a>
+            <a class="nav_map" href="/map">MAP</a>
+        </nav>
+        <div class="main_content">
+            <h3 class="current_page">BARCODE SCAN RESULT</h3>
+            <div class="item_box current_item">
+                <p class="line"></p>
+                <p class="sub_title"><%= name %></p>
+                <img
+                    class="item_img"
+                    onclick=""
+                    src="https://contents.lotteon.com/itemimage/_v175700/LM/47/11/26/96/89/29/0_/00/1/LM4711269689290_001_1.jpg"
+                />
+                <% if (isGreen) { %>
+                <p class="result green">녹색제품이 맞습니다.</p>
+                <% } else { %>
+                <p class="result non_green">녹색제품이 아닙니다.</p>
+                <% } %>
+            </div>
+            <div class="recommend">
+                <p class="line"></p>
+                <p class="sub_title">[Recommend]</p>
+                <div class="recommend_list">
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+                    <div class="item_box">
+                        <img
+                            class="item_img"
+                            onclick=""
+                            src="https://contents.lotteon.com/itemimage/_v131647/LM/40/01/68/63/01/55/5_/00/1/LM4001686301555_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+                    <div class="item_box" onclick="">
+                        <img
+                            class="item_img"
+                            src="https://contents.lotteon.com/itemimage/LM/88/01/06/23/32/23/6_/00/1/LM8801062332236_001_1.jpg"
+                        />
+                        <p class="item_title">이름</p>
+                        <div class="item_info">
+                            <p>&#8361;2000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
